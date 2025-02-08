@@ -1,2 +1,2 @@
-# Alejandro_Portfolio.github.io
-Mi Web
+# alejandro_rodriguez.github.io
+Portfolio de Alejandro Rodríguez González 
