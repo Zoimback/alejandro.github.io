@@ -47,35 +47,32 @@
         <!-- Experience Timeline -->
         <section id="description" class="section">
             <h2>Project Description</h2>
-            <p>Provide a brief description of your project here.</p>
+            <p>Este pipeline está diseñado para generar una imagen Docker, compilar el código, realizar pruebas, verificar la calidad del código y subir la imagen generada a DockerHub para su despliegue.
+                Puedes encontrar el código en este enlace -> <a href="https://github.com/Zoimback/auto-piops" target="_blank">Auto-piops</a>
+            </p>
         </section>
         <section id="features" class="section">
             <h2>Features</h2>
             <ul>
-                <li>Feature 1</li>
-                <li>Feature 2</li>
-                <li>Feature 3</li>
+                <li><b>Generación de imagen Docker:</b> Creación de una imagen basada en el archivo Dockerfile.</li>
+                <li><b>Compilación:</b> Compilación del código fuente.</li>
+                <li><b>Pruebas:</b> Ejecución de pruebas automatizadas para garantizar la estabilidad y funcionalidad del código.</li>
+                <li><b>Calidad del código:</b> Análisis de la calidad del código para asegurar el cumplimiento de estándares.</li>
+                <li><b>Despliegue:</b> Subida de la imagen Docker generada a DockerHub para su despliegue en entornos de producción.</li>
+                <li><b>Limpieza:</b> Eliminación del contenedor creado al finalizar el proceso.</li>
             </ul>
         </section>
         <section id="installation" class="section">
             <h2>Installation Instructions</h2>
-            <p>Step-by-step instructions on how to install the project.</p>
+            <p>Necesitas tener Jenkins instalado. Una vez instaladoi necesitarás configurarlo para que apunte a este repositorio. Se trata de un scripted pipeline por lo que habrá que configurarlo como shared-libraries.</p>
         </section>
         <section id="usage" class="section">
             <h2>Usage</h2>
-            <p>Instructions on how to use the project.</p>
-        </section>
-        <section id="documentation" class="section">
-            <h2>Documentation</h2>
-            <p>Detailed documentation of the project.</p>
-        </section>
-        <section id="examples" class="section">
-            <h2>Examples</h2>
-            <p>Examples of how to use the project.</p>
+            <p>Para estas pipeline, hace falta dos parámetros: la url del proyecto public y un dockerfile generado con la tempalte</p>
         </section>
         <section id="architecture" class="section">
             <h2>Architecture</h2>
-            <p>Explanation of the project's architecture.</p>
+            <p>El ciclo de vida de esta pipeline consta de 6 stages.</p>
         </section>
     </div>
 
