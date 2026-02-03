@@ -3,137 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alejandro's Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <title>A.R.G - Portfolio Retro</title>
+    <link rel="stylesheet" href="css/retro-styles.css">
+    <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-    <!-- Nav -->
-     <!-- Navigation Menu -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <div class="container">
-        <a class="navbar-brand" href="#">AR</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#home">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#experience">Recent-Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#stats">GitHub Stats</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-    <!-- Header -->
-    <header class="bg-dark text-white text-center py-5">
-        <h1>Alejandro Rodriguez</h1>
-        <p class="lead">DevOps Engineer</p>
-        <div class="social-links">
-            <a href="https://github.com/zoimback" class="text-white mx-2" target="_blank"><i class="bi bi-github"></i></a>
-            <a href="https://www.linkedin.com/in/alejandro-rodr%C3%ADguez-gonz%C3%A1lez/"  class="text-white mx-2"><i class="bi bi-linkedin"></i></a>
-        </div>
-    </header>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo glitch">A.R.G</div>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="active">HOME</a></li>
+            <li><a href="experience.html">EXPERIENCE</a></li>
+            <li><a href="skills.html">SKILLS</a></li>
+            <li><a href="projects.html">PROJECTS</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+    </nav>
 
-    <div class="container py-5">
-        <!-- Experience Timeline -->
-        <section class="mb-5">
-            <div class="row">
-                <!-- Professional Experience -->
-                <div class="col-md-8">
-                    <h2 class="mb-4 text-center text-md-start">Professional Experience</h2>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <h4>Senior DevOps Engineer</h4>
-                            <h6>Acenture - 2025-Present</h6>
-                            <p>Desarrollo de CI/CD pipelines en Jenkins.</p>
-                        </div>   
-                        <div class="timeline-item">
-                            <h4>Junior DevOps Engineer</h4>
-                            <h6>Linea Directa - 2024-2025</h6>
-                            <p>Desarrollo de CI/CD pipelines en Jenkins. Gestión de repositorios y mantenimiento GitLab</p>
-                        </div>
-                        <div class="timeline-item">
-                            <h4>DevOps Engineer - Delivery [Proyectos ATM]</h4>
-                            <h6>Indra - 2023-2024</h6>
-                            <p>Compilación, ejecución de pruebas y entrega de proyectos. DevOps </p>
-                        </div>
-                        <div class="timeline-item">
-                            <h4>Junior Software Developer</h4>
-                            <h6>Track and Chain - 2022-2022</h6>
-                            <p>Python Developer</p>
-                        </div>
-                    </div>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="perspective-grid"></div>
+            <div class="hero-content terminal-box">
+                <div class="system-header">
+                    <span class="glow">&gt; SYSTEM_BOOT.EXE</span>
+                    <span class="cursor"></span>
                 </div>
-                <!-- Sobre mí -->
-                <div class="col-md-4">
-                    <h2 class="mb-4 text-center text-md-start">Sobre mí</h2>
-                    <div class="card mb-5"><!-- Quitamos h-100 para que el alto se ajuste al contenido -->
-                        <div class="card-body">
-                            <p class="card-text">
-                                Soy un ingeniero DevOps apasionado por la automatización, la integración continua y el desarrollo de soluciones eficientes. Me especializo en la creación de pipelines robustos y la gestión de infraestructuras modernas.
-                            </p>
-                        </div>
-                    </div>
+                <h1 class="hero-title glow glitch">
+                    ALEJANDRO RODRÍGUEZ GONZÁLEZ
+                </h1>
+                <p class="hero-subtitle">
+                    <span class="tag">&lt;</span>
+                    AI AGENT DEVELOPER
+                    <span class="separator">//</span>
+                    DEVOPS ENGINEER
+                    <span class="separator">//</span>
+                    MCP SPECIALIST
+                    <span class="tag">&gt;</span>
+                </p>
+                <div class="hero-buttons">
+                    <a href="projects.html" class="btn">ENTER SYSTEM &gt;&gt;</a>
+                    <a href="contact.html" class="btn">INITIALIZE_CONNECTION.EXE</a>
                 </div>
             </div>
         </section>
 
-        <!-- Recent Projects -->
-        <section class="mb-5">
-            <h2 class="text-center mb-4">Proyectos recientes</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card project-card">
-                        <div class="card-body">
-                            <h5 class="card-title">Back End</h5>
-                            <p class="card-text">Python's api for project sensor</p>
-                            <a href="./html/api.html" class="btn btn-primary">View Project</a>
-                        </div>
-                    </div>
+        <!-- Tech Stack Section -->
+        <section class="tech-stack">
+            <h2 class="section-title glow">&gt; TECH_STACK.SYS</h2>
+            <div class="tech-grid">
+                <div class="tech-card terminal-box">
+                    <div class="tech-header">▓▓▓ PYTHON ▓▓▓</div>
+                    <pre class="tech-content">
+> LANGUAGE: Python 3.x
+> SKILL_LEVEL: ████████░░ 80%
+> EXPERIENCE: 3+ years
+> STATUS: [ACTIVE]
+                    </pre>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card project-card">
-                        <div class="card-body">
-                            <h5 class="card-title">CI/CD Pipeline</h5>
-                            <p class="card-text">Pipelines CI/CD con Jenkins, Github y Docker</p>
-                            <a href="./html/pipeline.html" class="btn btn-primary">View Project</a>
-                        </div>
-                    </div>
+                <div class="tech-card terminal-box">
+                    <div class="tech-header">▓▓▓ DOCKER ▓▓▓</div>
+                    <pre class="tech-content">
+> PLATFORM: Containerization
+> SKILL_LEVEL: ████████░░ 85%
+> EXPERIENCE: 2.5+ years
+> STATUS: [ACTIVE]
+                    </pre>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card project-card">
-                        <div class="card-body">
-                            <h5 class="card-title">Temperature Sensor</h5>
-                            <p class="card-text">Project for ESP-32</p>
-                            <a href="./html/template.html" class="btn btn-primary">View Project</a>
-                        </div>
-                    </div>
+                <div class="tech-card terminal-box">
+                    <div class="tech-header">▓▓▓ JENKINS ▓▓▓</div>
+                    <pre class="tech-content">
+> TOOL: CI/CD Automation
+> SKILL_LEVEL: █████████░ 90%
+> EXPERIENCE: 2.5+ years
+> STATUS: [ACTIVE]
+                    </pre>
+                </div>
+                <div class="tech-card terminal-box">
+                    <div class="tech-header">▓▓▓ GITHUB COPILOT ▓▓▓</div>
+                    <pre class="tech-content">
+> TYPE: AI Assistant
+> SKILL_LEVEL: ██████████ 95%
+> EXPERIENCE: 1+ year
+> STATUS: [ACTIVE]
+                    </pre>
                 </div>
             </div>
         </section>
 
-        <!-- GitHub Stats -->
-        <section class="text-center mb-5"></section>
-            <h2 class="text-center mb-4">GitHub Statistics</h2>
-            <div class="row justify-content-center">
-            <div class="col-md-6 d-flex justify-content-around">
-                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=zoimback&layout=compact&theme=radical" 
-                 class="img-fluid me-2" style="width: 50%;" alt="Most Used Languages">
-                <img src="https://github-contribution-stats.vercel.app/api/?username=zoimback" 
-                 class="img-fluid ms-2" style="width: 50%;" alt="Contribution Stats">
-            </div>
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="stats-grid">
+                <div class="stat-box terminal-box">
+                    <div class="stat-label">YEARS_EXPERIENCE</div>
+                    <div class="stat-value glow">2.5</div>
+                </div>
+                <div class="stat-box terminal-box">
+                    <div class="stat-label">PROJECTS_DEPLOYED</div>
+                    <div class="stat-value glow">50+</div>
+                </div>
+                <div class="stat-box terminal-box">
+                    <div class="stat-label">AUTOMATION_RATE</div>
+                    <div class="stat-value glow">95%</div>
+                </div>
             </div>
         </section>
-    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="cta-content terminal-box">
+                <p class="cta-text glow">&gt; READY_TO_COLLABORATE?</p>
+                <div class="cta-buttons">
+                    <a href="projects.html" class="btn">VIEW_PROJECTS.BAT</a>
+                    <a href="contact.html" class="btn">INITIALIZE_CONNECTION.EXE</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <p><span class="status-indicator"></span> SYSTEM_STATUS: ONLINE</p>
+                <p>&copy; 2026 ALEJANDRO RODRÍGUEZ GONZÁLEZ</p>
+                <pre class="ascii-art">
+   █████╗ ██████╗  ██████╗ 
+  ██╔══██╗██╔══██╗██╔════╝ 
+  ███████║██████╔╝██║  ███╗
+  ██╔══██║██╔══██╗██║   ██║
+  ██║  ██║██║  ██║╚██████╔╝
+  ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ 
+                </pre>
+            </div>
+        </footer>
+    </main>
+
+    <script src="js/retro-effects.js"></script>
 </body>
 </html>
