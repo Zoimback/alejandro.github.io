@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience Log - A.R.G Terminal</title>
+    <link rel="stylesheet" href="css/retro-styles.css">
+    <link rel="stylesheet" href="css/experience.css">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">A.R.G</div>
+        <ul class="nav-menu">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="experience.html">EXPERIENCE</a></li>
+            <li><a href="projects.html">PROJECTS</a></li>
+            <li><a href="skills.html">SKILLS</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <main class="experience-terminal">
+        <div class="terminal-header">
+            <span class="terminal-title">$ cat experience.txt</span>
+            <span class="terminal-controls">
+                <span class="terminal-btn close"></span>
+                <span class="terminal-btn minimize"></span>
+                <span class="terminal-btn maximize"></span>
+            </span>
+        </div>
+
+        <div class="terminal-content">
+            <div class="system-info">
+                <p>> SYSTEM: ARG_PORTFOLIO_v2.0</p>
+                <p>> USER: alejandro.rodriguez@accenture</p>
+                <p>> DATE: <?php echo date('Y-m-d H:i:s'); ?> <script>document.write(new Date().toISOString().split('T')[0] + ' ' + new Date().toTimeString().split(' ')[0])</script></p>
+                <p>> STATUS: <span class="status-active">ONLINE</span></p>
+                <p class="separator-line">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</p>
+            </div>
+
+            <div class="experience-tree">
+                <div class="job-entry current">
+                    <div class="job-header">
+                        <span class="tree-icon">├──</span>
+                        <span class="job-title">[CURRENT] GenIA DevOps Senior Engineer</span>
+                    </div>
+                    <div class="job-details">
+                        <p class="company">📍 ACCENTURE ESPAÑA</p>
+                        <p class="period">⏱ 2024 - PRESENT</p>
+                        <div class="description">
+                            <p>└─ Development of AI agents for automation</p>
+                            <p>└─ MCP (Model Context Protocol) implementation</p>
+                            <p>└─ DevOps pipeline optimization with AI</p>
+                            <p>└─ GitHub Copilot integration specialist</p>
+                        </div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Jenkins</span>
+                            <span class="tech-tag">MCP</span>
+                            <span class="tech-tag">GitHub Copilot</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="job-entry">
+                    <div class="job-header">
+                        <span class="tree-icon">├──</span>
+                        <span class="job-title">DevOps Engineer</span>
+                    </div>
+                    <div class="job-details">
+                        <p class="company">📍 LÍNEA DIRECTA ASEGURADORA</p>
+                        <p class="period">⏱ 2020 - 2024</p>
+                        <div class="description">
+                            <p>└─ CI/CD pipeline development with Jenkins</p>
+                            <p>└─ Infrastructure automation with Python & Bash</p>
+                            <p>└─ Container orchestration with Docker</p>
+                            <p>└─ Git workflow optimization</p>
+                        </div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Jenkins</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Bash</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Git</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="job-entry">
+                    <div class="job-header">
+                        <span class="tree-icon">└──</span>
+                        <span class="job-title">Backend Developer</span>
+                    </div>
+                    <div class="job-details">
+                        <p class="company">📍 INDRA</p>
+                        <p class="period">⏱ 2018 - 2020</p>
+                        <div class="description">
+                            <p>└─ Python backend development</p>
+                            <p>└─ API design and implementation</p>
+                            <p>└─ Database optimization</p>
+                            <p>└─ Code versioning with Git</p>
+                        </div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Git</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-panel">
+                <h3>[ CAREER STATS ]</h3>
+                <div class="stat-bar">
+                    <span class="stat-label">DevOps Experience</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 90%;"></div>
+                        <span class="progress-text">90%</span>
+                    </div>
+                </div>
+                <div class="stat-bar">
+                    <span class="stat-label">AI/MCP Development</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%;"></div>
+                        <span class="progress-text">85%</span>
+                    </div>
+                </div>
+                <div class="stat-bar">
+                    <span class="stat-label">Python Automation</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 95%;"></div>
+                        <span class="progress-text">95%</span>
+                    </div>
+                </div>
+                <div class="stat-bar">
+                    <span class="stat-label">CI/CD Pipelines</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 88%;"></div>
+                        <span class="progress-text">88%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="terminal-prompt">
+                <span class="prompt-symbol">$</span>
+                <span class="cursor-blink">_</span>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/retro-effects.js"></script>
+</body>
+</html>

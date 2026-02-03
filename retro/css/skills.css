@@ -1,0 +1,220 @@
+/* ===== SKILLS MATRIX STYLES ===== */
+
+.skills-matrix {
+    max-width: 1200px;
+    margin: 6rem auto 2rem;
+    padding: 0 2rem;
+}
+
+.matrix-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.matrix-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2.5rem;
+    color: var(--electric-blue);
+    margin-bottom: 1rem;
+    text-shadow: 
+        0 0 10px var(--electric-blue),
+        0 0 20px var(--electric-blue);
+}
+
+.matrix-subtitle {
+    font-family: 'VT323', monospace;
+    font-size: 1.5rem;
+    color: var(--neon-green);
+}
+
+/* Skills Container */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.skill-category {
+    background: rgba(0, 0, 0, 0.95);
+    border: 3px solid var(--neon-green);
+    padding: 2rem;
+    box-shadow: 
+        inset 0 0 20px rgba(0, 255, 65, 0.1),
+        0 0 30px rgba(0, 255, 65, 0.3);
+    transition: all 0.3s ease;
+}
+
+.skill-category:hover {
+    border-color: var(--electric-blue);
+    box-shadow: 
+        inset 0 0 30px rgba(0, 240, 255, 0.2),
+        0 0 40px rgba(0, 240, 255, 0.5);
+    transform: translateY(-5px);
+}
+
+.category-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.2rem;
+    color: var(--neon-pink);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--electric-blue);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.category-title .icon {
+    font-size: 1.5rem;
+}
+
+/* Skill Items */
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.skill-item {
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateX(10px);
+}
+
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+}
+
+.skill-name {
+    color: var(--neon-green);
+}
+
+.skill-level {
+    color: var(--neon-pink);
+    font-weight: bold;
+}
+
+/* Skill Bars */
+.skill-bar {
+    height: 30px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid var(--electric-blue);
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, 
+        var(--neon-green) 0%, 
+        var(--electric-blue) 50%, 
+        var(--neon-pink) 100%);
+    box-shadow: 0 0 20px var(--electric-blue);
+    position: relative;
+    transition: width 2s ease;
+    animation: skillPulse 3s ease-in-out infinite;
+}
+
+@keyframes skillPulse {
+    0%, 100% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.skill-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.3) 50%, 
+        transparent 100%);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Stats Summary */
+.stats-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.stat-box {
+    background: rgba(0, 0, 0, 0.95);
+    border: 3px solid var(--neon-purple);
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 
+        inset 0 0 20px rgba(157, 0, 255, 0.2),
+        0 0 30px rgba(157, 0, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.stat-box:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        inset 0 0 30px rgba(157, 0, 255, 0.3),
+        0 0 50px rgba(157, 0, 255, 0.8);
+}
+
+.stat-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.stat-value {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2.5rem;
+    color: var(--neon-pink);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+    color: var(--electric-blue);
+    letter-spacing: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .matrix-title {
+        font-size: 1.5rem;
+    }
+    
+    .skills-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .stats-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .stat-value {
+        font-size: 2rem;
+    }
+}

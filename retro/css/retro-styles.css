@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap');
+
+/* ===== VARIABLES ===== */
+:root {
+  --electric-blue: #00F0FF;
+  --neon-green: #00FF41;
+  --neon-pink: #FF10F0;
+  --neon-purple: #9D00FF;
+  --deep-black: #000000;
+  --dark-bg: #0a0a0a;
+  --grid-color: rgba(0, 240, 255, 0.1);
+}
+
+/* ===== RESET & BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--deep-black);
+  color: var(--electric-blue);
+  font-family: 'VT323', monospace;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ===== SCANLINE EFFECT ===== */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ===== GRID BACKGROUND ===== */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: -1px -1px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  border-bottom: 2px solid var(--electric-blue);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+  padding: 1rem 2rem;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.5rem;
+  color: var(--electric-blue);
+  text-shadow: 0 0 10px var(--electric-blue);
+  letter-spacing: 3px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-menu a {
+  color: var(--electric-blue);
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: var(--neon-green);
+  text-shadow: 0 0 15px var(--neon-green);
+  border: 2px solid var(--neon-green);
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+}
+
+/* ===== MAIN CONTENT ===== */
+main {
+  padding-top: 100px;
+  min-height: 100vh;
+}
+
+/* ===== GLITCH EFFECT ===== */
+.glitch {
+  position: relative;
+  animation: glitch 5s infinite;
+}
+
+@keyframes glitch {
+  0%, 90%, 100% {
+    transform: translate(0);
+  }
+  91% {
+    transform: translate(-2px, 2px);
+  }
+  92% {
+    transform: translate(2px, -2px);
+  }
+  93% {
+    transform: translate(-2px, 2px);
+  }
+}
+
+/* ===== TERMINAL BOX ===== */
+.terminal-box {
+  background: rgba(0, 0, 0, 0.9);
+  border: 3px solid var(--electric-blue);
+  box-shadow: 
+    0 0 20px rgba(0, 240, 255, 0.3),
+    inset 0 0 20px rgba(0, 240, 255, 0.1);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  position: relative;
+}
+
+.terminal-box::before {
+  content: '■ ■ ■';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: var(--neon-green);
+  font-size: 0.8rem;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  background: transparent;
+  color: var(--electric-blue);
+  border: 2px solid var(--electric-blue);
+  padding: 1rem 2rem;
+  font-family: 'VT323', monospace;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--electric-blue);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.btn:hover::before {
+  left: 0;
+}
+
+.btn:hover {
+  color: var(--deep-black);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.8);
+  text-shadow: none;
+}
+
+/* ===== BLINKING CURSOR ===== */
+.cursor {
+  display: inline-block;
+  width: 10px;
+  height: 20px;
+  background: var(--neon-green);
+  animation: blink 1s infinite;
+  margin-left: 5px;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ===== TEXT GLOW ===== */
+.glow {
+  text-shadow: 
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    0 0 20px currentColor;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .nav-menu {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .logo {
+    font-size: 1rem;
+  }
+  
+  .terminal-box {
+    padding: 1rem;
+    margin: 1rem;
+  }
+}

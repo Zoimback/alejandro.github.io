@@ -1,0 +1,313 @@
+/* ===== ARCADE PROJECTS STYLES ===== */
+
+.arcade-container {
+    max-width: 1400px;
+    margin: 6rem auto 2rem;
+    padding: 0 2rem;
+}
+
+.arcade-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.arcade-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2.5rem;
+    color: var(--neon-pink);
+    text-shadow: 
+        0 0 10px var(--neon-pink),
+        0 0 20px var(--neon-pink),
+        0 0 30px var(--neon-pink);
+    animation: titlePulse 2s ease-in-out infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes titlePulse {
+    0%, 100% {
+        text-shadow: 
+            0 0 10px var(--neon-pink),
+            0 0 20px var(--neon-pink);
+    }
+    50% {
+        text-shadow: 
+            0 0 20px var(--neon-pink),
+            0 0 30px var(--neon-pink),
+            0 0 40px var(--neon-pink);
+    }
+}
+
+.pixel-border {
+    color: var(--electric-blue);
+    font-size: 3rem;
+    margin: 0 1rem;
+}
+
+.credits {
+    font-family: 'VT323', monospace;
+    font-size: 1.5rem;
+    color: var(--neon-green);
+}
+
+/* Missions Grid */
+.missions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.mission-card {
+    background: rgba(0, 0, 0, 0.95);
+    border: 4px solid var(--electric-blue);
+    box-shadow: 
+        inset 0 0 20px rgba(0, 240, 255, 0.2),
+        0 0 30px rgba(0, 240, 255, 0.5);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.mission-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        var(--electric-blue), 
+        var(--neon-pink), 
+        var(--neon-green), 
+        var(--neon-purple));
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: borderRotate 4s linear infinite;
+}
+
+@keyframes borderRotate {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.mission-card:hover::before {
+    opacity: 0.5;
+}
+
+.mission-card:hover {
+    transform: scale(1.05) translateY(-10px);
+    box-shadow: 
+        inset 0 0 30px rgba(0, 240, 255, 0.4),
+        0 0 50px rgba(0, 240, 255, 0.8);
+}
+
+.mission-card.level-easy {
+    border-color: var(--neon-green);
+}
+
+.mission-card.level-medium {
+    border-color: var(--electric-blue);
+}
+
+.mission-card.level-hard {
+    border-color: var(--neon-pink);
+}
+
+.mission-card.level-expert {
+    border-color: var(--neon-purple);
+}
+
+/* Card Header */
+.card-header {
+    background: rgba(0, 240, 255, 0.1);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--electric-blue);
+}
+
+.level-badge {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    color: var(--neon-pink);
+}
+
+.status-badge {
+    font-family: 'VT323', monospace;
+    font-size: 1rem;
+    padding: 0.3rem 0.8rem;
+    border: 2px solid;
+    text-transform: uppercase;
+}
+
+.status-badge.active {
+    color: var(--neon-green);
+    border-color: var(--neon-green);
+    box-shadow: 0 0 10px var(--neon-green);
+    animation: pulse 2s infinite;
+}
+
+.status-badge.completed {
+    color: var(--electric-blue);
+    border-color: var(--electric-blue);
+}
+
+/* Card Screen */
+.card-screen {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 2px solid var(--electric-blue);
+}
+
+.ascii-icon {
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+    color: var(--electric-blue);
+    line-height: 1.2;
+    text-shadow: 0 0 10px var(--electric-blue);
+}
+
+/* Card Info */
+.card-info {
+    padding: 1.5rem;
+}
+
+.mission-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.2rem;
+    color: var(--neon-pink);
+    margin-bottom: 1rem;
+}
+
+.mission-desc {
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    color: var(--neon-green);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* Tech Pills */
+.mission-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tech-pixel {
+    font-family: 'VT323', monospace;
+    background: rgba(0, 240, 255, 0.1);
+    border: 2px solid var(--electric-blue);
+    padding: 0.3rem 0.8rem;
+    color: var(--electric-blue);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.tech-pixel:hover {
+    background: rgba(0, 240, 255, 0.3);
+    box-shadow: 0 0 15px var(--electric-blue);
+    transform: scale(1.1);
+}
+
+/* Mission Links */
+.mission-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.pixel-btn {
+    font-family: 'Press Start 2P', cursive;
+    background: rgba(0, 240, 255, 0.1);
+    border: 3px solid var(--electric-blue);
+    padding: 0.8rem 1.5rem;
+    color: var(--electric-blue);
+    text-decoration: none;
+    font-size: 0.8rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.pixel-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--electric-blue);
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.pixel-btn:hover {
+    color: #000;
+    box-shadow: 0 0 20px var(--electric-blue);
+}
+
+.pixel-btn:hover::before {
+    left: 0;
+}
+
+.pixel-btn.secondary {
+    border-color: var(--neon-pink);
+    color: var(--neon-pink);
+}
+
+.pixel-btn.secondary::before {
+    background: var(--neon-pink);
+}
+
+.pixel-btn.secondary:hover {
+    box-shadow: 0 0 20px var(--neon-pink);
+}
+
+/* Arcade Footer */
+.arcade-footer {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.insert-coin {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5rem;
+    color: var(--neon-pink);
+    animation: blink 1.5s step-end infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .arcade-title {
+        font-size: 1.5rem;
+    }
+    
+    .pixel-border {
+        font-size: 2rem;
+        margin: 0 0.5rem;
+    }
+    
+    .missions-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .mission-links {
+        flex-direction: column;
+    }
+    
+    .pixel-btn {
+        text-align: center;
+    }
+}

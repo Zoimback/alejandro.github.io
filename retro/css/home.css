@@ -1,0 +1,255 @@
+/* ===== HOME PAGE STYLES ===== */
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 2rem;
+}
+
+.perspective-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(
+      0deg,
+      transparent 24%,
+      rgba(0, 240, 255, 0.05) 25%,
+      rgba(0, 240, 255, 0.05) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(0, 240, 255, 0.05) 75%,
+      rgba(0, 240, 255, 0.05) 76%,
+      transparent 77%
+    );
+  background-size: 50px 50px;
+  transform: perspective(500px) rotateX(60deg);
+  transform-origin: bottom;
+  opacity: 0.3;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% {
+    transform: perspective(500px) rotateX(60deg) translateY(0);
+  }
+  100% {
+    transform: perspective(500px) rotateX(60deg) translateY(50px);
+  }
+}
+
+.hero-content {
+  max-width: 900px;
+  text-align: center;
+  z-index: 1;
+}
+
+.system-header {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: var(--neon-green);
+}
+
+.hero-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  color: var(--electric-blue);
+  letter-spacing: 2px;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+  color: var(--neon-green);
+}
+
+.tag {
+  color: var(--neon-pink);
+}
+
+.separator {
+  color: var(--electric-blue);
+  margin: 0 0.5rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Tech Stack Section */
+.tech-stack {
+  padding: 4rem 2rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--electric-blue);
+  font-family: 'Press Start 2P', cursive;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tech-card {
+  background: rgba(0, 255, 65, 0.05);
+  border-color: var(--neon-green);
+}
+
+.tech-header {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--neon-green);
+  background: rgba(0, 255, 65, 0.1);
+  padding: 0.5rem;
+}
+
+.tech-content {
+  font-family: 'VT323', monospace;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--neon-green);
+  white-space: pre;
+}
+
+/* Stats Section */
+.stats {
+  padding: 4rem 2rem;
+  background: radial-gradient(circle at center, rgba(0, 240, 255, 0.1) 0%, transparent 70%);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stat-box {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: rgba(0, 0, 0, 0.95);
+  border-color: var(--neon-purple);
+  box-shadow: 0 0 30px rgba(157, 0, 255, 0.5);
+}
+
+.stat-label {
+  font-size: 1.2rem;
+  color: var(--electric-blue);
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.stat-value {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3rem;
+  color: var(--neon-purple);
+}
+
+/* CTA Section */
+.cta {
+  padding: 4rem 2rem;
+}
+
+.cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 3rem;
+}
+
+.cta-text {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--neon-pink);
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Footer */
+footer {
+  background: rgba(0, 0, 0, 0.95);
+  border-top: 2px solid var(--neon-green);
+  padding: 2rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.footer-content p {
+  color: var(--neon-green);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.status-indicator {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: var(--neon-green);
+  border-radius: 50%;
+  margin-right: 10px;
+  animation: pulse 2s infinite;
+  box-shadow: 0 0 10px var(--neon-green);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+}
+
+.ascii-art {
+  color: var(--electric-blue);
+  font-size: 0.6rem;
+  line-height: 1;
+  margin-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 1.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .tech-grid,
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stat-value {
+    font-size: 2rem;
+  }
+}

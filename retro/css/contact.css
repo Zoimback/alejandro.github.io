@@ -1,0 +1,348 @@
+/* ===== CONTACT TERMINAL STYLES ===== */
+
+.contact-terminal {
+    max-width: 1400px;
+    margin: 6rem auto 2rem;
+    padding: 0 2rem;
+}
+
+.terminal-window {
+    background: rgba(0, 0, 0, 0.95);
+    border: 3px solid var(--neon-green);
+    box-shadow: 
+        inset 0 0 30px rgba(0, 255, 65, 0.1),
+        0 0 50px rgba(0, 255, 65, 0.3);
+}
+
+.terminal-top {
+    background: rgba(0, 255, 65, 0.1);
+    border-bottom: 2px solid var(--neon-green);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.terminal-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.2rem;
+    color: var(--electric-blue);
+}
+
+.terminal-status {
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+    color: var(--neon-green);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--neon-green);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--neon-green);
+    animation: pulse 2s infinite;
+}
+
+.terminal-body {
+    padding: 2rem;
+    font-family: 'VT323', monospace;
+}
+
+/* Boot Sequence */
+.boot-sequence {
+    color: var(--neon-green);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.boot-sequence .separator {
+    color: var(--electric-blue);
+    margin: 1rem 0;
+}
+
+/* Contact Grid */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.3rem;
+    color: var(--neon-pink);
+    margin-bottom: 2rem;
+}
+
+/* Form Styles */
+.cyber-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 1.2rem;
+    color: var(--electric-blue);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.label-icon {
+    color: var(--neon-pink);
+}
+
+.form-group input,
+.form-group textarea {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid var(--neon-green);
+    color: var(--neon-green);
+    padding: 1rem;
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--electric-blue);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+    background: rgba(0, 240, 255, 0.05);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(0, 255, 65, 0.4);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.submit-btn {
+    background: rgba(0, 240, 255, 0.1);
+    border: 3px solid var(--electric-blue);
+    color: var(--electric-blue);
+    padding: 1rem 2rem;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--electric-blue);
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.submit-btn:hover {
+    color: #000;
+    box-shadow: 0 0 30px var(--electric-blue);
+}
+
+.submit-btn:hover::before {
+    left: 0;
+}
+
+.btn-icon {
+    font-size: 1.5rem;
+    animation: flash 2s infinite;
+}
+
+@keyframes flash {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.form-response {
+    padding: 1rem;
+    margin-top: 1rem;
+    border: 2px solid transparent;
+    font-size: 1.1rem;
+    display: none;
+}
+
+.form-response.success {
+    display: block;
+    border-color: var(--neon-green);
+    color: var(--neon-green);
+    background: rgba(0, 255, 65, 0.1);
+}
+
+.form-response.error {
+    display: block;
+    border-color: var(--neon-pink);
+    color: var(--neon-pink);
+    background: rgba(255, 16, 240, 0.1);
+}
+
+/* Contact Nodes */
+.contact-nodes {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.node {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid var(--electric-blue);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.node:hover {
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 20px rgba(255, 16, 240, 0.5);
+    transform: translateX(10px);
+}
+
+.node-icon {
+    font-size: 2rem;
+    width: 50px;
+    text-align: center;
+}
+
+.node-details {
+    flex: 1;
+}
+
+.node-label {
+    color: var(--neon-pink);
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.node-link {
+    color: var(--electric-blue);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.node-link:hover {
+    color: var(--neon-green);
+    text-shadow: 0 0 10px var(--neon-green);
+}
+
+/* System Stats */
+.system-stats {
+    background: rgba(0, 255, 65, 0.05);
+    border: 2px solid var(--neon-green);
+    padding: 1.5rem;
+}
+
+.system-stats h3 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1rem;
+    color: var(--electric-blue);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.stat {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+.stat-label {
+    color: var(--neon-pink);
+}
+
+.stat-value {
+    color: var(--electric-blue);
+    font-weight: bold;
+}
+
+/* Terminal Footer */
+.terminal-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--neon-green);
+}
+
+.footer-message {
+    color: var(--neon-green);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.footer-prompt {
+    color: var(--neon-green);
+    font-size: 1.2rem;
+}
+
+.prompt {
+    color: var(--electric-blue);
+    margin-right: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .terminal-top {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .terminal-title {
+        font-size: 1rem;
+    }
+    
+    .terminal-body {
+        padding: 1rem;
+    }
+    
+    .section-title {
+        font-size: 1rem;
+    }
+}

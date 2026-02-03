@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Establish Connection - A.R.G Terminal</title>
+    <link rel="stylesheet" href="css/retro-styles.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">A.R.G</div>
+        <ul class="nav-menu">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="experience.html">EXPERIENCE</a></li>
+            <li><a href="projects.html">PROJECTS</a></li>
+            <li><a href="skills.html">SKILLS</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <main class="contact-terminal">
+        <div class="terminal-window">
+            <div class="terminal-top">
+                <span class="terminal-title">ESTABLISH_CONNECTION.EXE</span>
+                <span class="terminal-status">
+                    <span class="status-dot"></span> CONNECTION: READY
+                </span>
+            </div>
+
+            <div class="terminal-body">
+                <!-- System Boot Messages -->
+                <div class="boot-sequence">
+                    <p>> Initializing secure communication channel...</p>
+                    <p>> Encryption protocols: ACTIVE</p>
+                    <p>> Firewall status: ONLINE</p>
+                    <p>> Ready to receive transmission...</p>
+                    <p class="separator">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</p>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Contact Form -->
+                    <div class="form-section">
+                        <h2 class="section-title">[ SEND_TRANSMISSION ]</h2>
+                        <form id="contact-form" class="cyber-form">
+                            <div class="form-group">
+                                <label for="name">
+                                    <span class="label-icon">▸</span> IDENTIFICATION:
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="name" 
+                                    name="name" 
+                                    placeholder="Enter your name..."
+                                    required
+                                />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">
+                                    <span class="label-icon">▸</span> EMAIL_ADDRESS:
+                                </label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    placeholder="your.email@domain.com"
+                                    required
+                                />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">
+                                    <span class="label-icon">▸</span> SUBJECT_LINE:
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="subject" 
+                                    name="subject" 
+                                    placeholder="Message subject..."
+                                    required
+                                />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">
+                                    <span class="label-icon">▸</span> MESSAGE_PAYLOAD:
+                                </label>
+                                <textarea 
+                                    id="message" 
+                                    name="message" 
+                                    rows="8"
+                                    placeholder="Enter your message here..."
+                                    required
+                                ></textarea>
+                            </div>
+
+                            <button type="submit" class="submit-btn">
+                                <span class="btn-text">[ TRANSMIT_MESSAGE ]</span>
+                                <span class="btn-icon">⚡</span>
+                            </button>
+
+                            <div id="form-response" class="form-response"></div>
+                        </form>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="info-section">
+                        <h2 class="section-title">[ DIRECT_CHANNELS ]</h2>
+                        
+                        <div class="contact-nodes">
+                            <div class="node">
+                                <div class="node-icon">📧</div>
+                                <div class="node-details">
+                                    <div class="node-label">EMAIL_NODE</div>
+                                    <a href="mailto:alejandro.rodriguez@example.com" class="node-link">
+                                        alejandro.rodriguez@accenture.com
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="node">
+                                <div class="node-icon">💼</div>
+                                <div class="node-details">
+                                    <div class="node-label">LINKEDIN_PROFILE</div>
+                                    <a href="https://www.linkedin.com/in/alejandro-rodríguez-gonzález/" target="_blank" class="node-link">
+                                        linkedin.com/in/alejandro-rodriguez-gonzalez
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="node">
+                                <div class="node-icon">💻</div>
+                                <div class="node-details">
+                                    <div class="node-label">GITHUB_REPOSITORY</div>
+                                    <a href="https://github.com/zoimback" target="_blank" class="node-link">
+                                        github.com/zoimback
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="node">
+                                <div class="node-icon">🌐</div>
+                                <div class="node-details">
+                                    <div class="node-label">WEB_PROJECT</div>
+                                    <a href="https://es.laalarmainteligente.es/" target="_blank" class="node-link">
+                                        laalarmainteligente.es
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- System Stats -->
+                        <div class="system-stats">
+                            <h3>[ SYSTEM_STATUS ]</h3>
+                            <div class="stats-grid">
+                                <div class="stat">
+                                    <span class="stat-label">UPTIME:</span>
+                                    <span class="stat-value" id="uptime">0d 0h 0m</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">RESPONSE_TIME:</span>
+                                    <span class="stat-value">&lt;24h</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">AVAILABILITY:</span>
+                                    <span class="stat-value">99.9%</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">LOCATION:</span>
+                                    <span class="stat-value">ESPAÑA</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terminal Footer -->
+                <div class="terminal-footer">
+                    <p class="footer-message">
+                        > All communications are encrypted and secure
+                    </p>
+                    <p class="footer-prompt">
+                        <span class="prompt">$</span>
+                        <span class="cursor-blink">_</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/retro-effects.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>
