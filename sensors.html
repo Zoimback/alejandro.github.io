@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Dashboard - A.R.G</title>
+    <link rel="stylesheet" href="css/retro-styles.css">
+    <link rel="stylesheet" href="css/sensors.css">
+    <link rel="icon" type="image/svg+xml" href="space-invader.svg?v=1">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo glitch">A.R.G</div>
+        <ul class="nav-menu">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="experience.html">EXPERIENCE</a></li>
+            <li><a href="skills.html">SKILLS</a></li>
+            <li><a href="projects.html">PROJECTS</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+            <li><a href="sensors.html" class="active">SENSORS</a></li>
+        </ul>
+    </nav>
+
+    <main class="dashboard-container">
+        <!-- Header Section -->
+        <section class="dashboard-header terminal-box">
+            <div class="system-header">
+                <span class="glow">&gt; SENSOR_MONITORING_SYSTEM.EXE</span>
+                <span class="cursor"></span>
+            </div>
+            <h1 class="glow">ESP32 SENSOR DASHBOARD</h1>
+            <p class="subtitle">Real-time Temperature & Humidity Monitoring</p>
+            <div class="api-status">
+                <span id="api-status-indicator" class="status-dot offline"></span>
+                <span id="api-status-text">CHECKING API...</span>
+            </div>
+        </section>
+
+        <!-- Statistics Cards -->
+        <section class="stats-grid">
+            <div class="stat-card terminal-box">
+                <div class="stat-header">
+                    <span class="tag">&lt;</span>TEMPERATURE<span class="tag">&gt;</span>
+                </div>
+                <div class="stat-value glow" id="temp-current">--°C</div>
+                <div class="stat-details">
+                    <div class="stat-row">
+                        <span>Media:</span>
+                        <span id="temp-mean">--</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Mediana:</span>
+                        <span id="temp-median">--</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Moda:</span>
+                        <span id="temp-mode">--</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Min/Max:</span>
+                        <span id="temp-minmax">--</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Desv. Est.:</span>
+                        <span id="temp-stddev">--</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card terminal-box">
+                <div class="stat-header">
+                    <span class="tag">&lt;</span>HUMIDITY<span class="tag">&gt;</span>
+                </div>
+                <div class="stat-value glow" id="humidity-current">--%</div>
+                <div class="stat-details">
+                    <div class="stat-row">
+                        <span>Media:</span>
+                        <span id="humidity-mean">--</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Mediana:</span>
+                        <span id="humidity-median">--</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Moda:</span>
+                        <span id="humidity-mode">--</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Min/Max:</span>
+                        <span id="humidity-minmax">--</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Desv. Est.:</span>
+                        <span id="humidity-stddev">--</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card terminal-box">
+                <div class="stat-header">
+                    <span class="tag">&lt;</span>SYSTEM INFO<span class="tag">&gt;</span>
+                </div>
+                <div class="stat-details full-height">
+                    <div class="stat-row">
+                        <span>Total Métricas:</span>
+                        <span id="total-metrics" class="glow">--</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Dispositivos:</span>
+                        <span id="total-devices" class="glow">--</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Tipos Sensores:</span>
+                        <span id="sensor-types" class="glow">--</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Última Actualización:</span>
+                        <span id="last-update">--</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="charts-section">
+            <!-- Temperature Time Series -->
+            <div class="chart-container terminal-box">
+                <div class="chart-header">
+                    <span class="tag">&lt;</span>
+                    TEMPERATURE TIMELINE
+                    <span class="tag">&gt;</span>
+                </div>
+                <canvas id="tempChart"></canvas>
+            </div>
+
+            <!-- Humidity Time Series -->
+            <div class="chart-container terminal-box">
+                <div class="chart-header">
+                    <span class="tag">&lt;</span>
+                    HUMIDITY TIMELINE
+                    <span class="tag">&gt;</span>
+                </div>
+                <canvas id="humidityChart"></canvas>
+            </div>
+
+            <!-- Temperature Distribution -->
+            <div class="chart-container terminal-box">
+                <div class="chart-header">
+                    <span class="tag">&lt;</span>
+                    TEMPERATURE DISTRIBUTION
+                    <span class="tag">&gt;</span>
+                </div>
+                <canvas id="tempDistChart"></canvas>
+            </div>
+
+            <!-- Humidity Distribution -->
+            <div class="chart-container terminal-box">
+                <div class="chart-header">
+                    <span class="tag">&lt;</span>
+                    HUMIDITY DISTRIBUTION
+                    <span class="tag">&gt;</span>
+                </div>
+                <canvas id="humidityDistChart"></canvas>
+            </div>
+
+            <!-- Correlation Chart -->
+            <div class="chart-container terminal-box full-width">
+                <div class="chart-header">
+                    <span class="tag">&lt;</span>
+                    TEMPERATURE vs HUMIDITY CORRELATION
+                    <span class="tag">&gt;</span>
+                </div>
+                <canvas id="correlationChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Latest Readings Table -->
+        <section class="table-section terminal-box">
+            <div class="chart-header">
+                <span class="tag">&lt;</span>
+                LATEST READINGS
+                <span class="tag">&gt;</span>
+            </div>
+            <div class="table-container">
+                <table id="readings-table">
+                    <thead>
+                        <tr>
+                            <th>TIMESTAMP</th>
+                            <th>DEVICE</th>
+                            <th>SENSOR</th>
+                            <th>VALUE</th>
+                            <th>LOCATION</th>
+                        </tr>
+                    </thead>
+                    <tbody id="readings-tbody">
+                        <tr>
+                            <td colspan="5" class="loading">LOADING DATA...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Controls -->
+        <section class="controls terminal-box">
+            <div class="chart-header">
+                <span class="tag">&lt;</span>
+                CONTROLS
+                <span class="tag">&gt;</span>
+            </div>
+            <div class="control-buttons">
+                <button class="btn" onclick="refreshData()">
+                    <span class="glow">⟳ REFRESH DATA</span>
+                </button>
+                <button class="btn" onclick="toggleAutoRefresh()">
+                    <span class="glow" id="auto-refresh-text">▶ AUTO-REFRESH: OFF</span>
+                </button>
+                <select id="time-range" class="select-box" onchange="updateTimeRange()">
+                    <option value="1">Last 1 Hour</option>
+                    <option value="6">Last 6 Hours</option>
+                    <option value="24" selected>Last 24 Hours</option>
+                    <option value="168">Last Week</option>
+                </select>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/sensors.js"></script>
+    <script src="js/retro-effects.js"></script>
+</body>
+</html>
