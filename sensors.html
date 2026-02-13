@@ -31,7 +31,7 @@
                 <span class="cursor"></span>
             </div>
             <h1 class="glow">ESP32 SENSOR DASHBOARD</h1>
-            <p class="subtitle">Real-time Temperature & Humidity Monitoring</p>
+            <p class="subtitle">Real-time Temperature Monitoring</p>
             <div class="api-status">
                 <span id="api-status-indicator" class="status-dot offline"></span>
                 <span id="api-status-text">CHECKING API...</span>
@@ -65,35 +65,6 @@
                     <div class="stat-row">
                         <span>Desv. Est.:</span>
                         <span id="temp-stddev">--</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="stat-card terminal-box">
-                <div class="stat-header">
-                    <span class="tag">&lt;</span>HUMIDITY<span class="tag">&gt;</span>
-                </div>
-                <div class="stat-value glow" id="humidity-current">--%</div>
-                <div class="stat-details">
-                    <div class="stat-row">
-                        <span>Media:</span>
-                        <span id="humidity-mean">--</span>
-                    </div>
-                    <div class="stat-row">
-                        <span>Mediana:</span>
-                        <span id="humidity-median">--</span>
-                    </div>
-                    <div class="stat-row">
-                        <span>Moda:</span>
-                        <span id="humidity-mode">--</span>
-                    </div>
-                    <div class="stat-row">
-                        <span>Min/Max:</span>
-                        <span id="humidity-minmax">--</span>
-                    </div>
-                    <div class="stat-row">
-                        <span>Desv. Est.:</span>
-                        <span id="humidity-stddev">--</span>
                     </div>
                 </div>
             </div>
@@ -135,16 +106,6 @@
                 <canvas id="tempChart"></canvas>
             </div>
 
-            <!-- Humidity Time Series -->
-            <div class="chart-container terminal-box">
-                <div class="chart-header">
-                    <span class="tag">&lt;</span>
-                    HUMIDITY TIMELINE
-                    <span class="tag">&gt;</span>
-                </div>
-                <canvas id="humidityChart"></canvas>
-            </div>
-
             <!-- Temperature Distribution -->
             <div class="chart-container terminal-box">
                 <div class="chart-header">
@@ -153,26 +114,6 @@
                     <span class="tag">&gt;</span>
                 </div>
                 <canvas id="tempDistChart"></canvas>
-            </div>
-
-            <!-- Humidity Distribution -->
-            <div class="chart-container terminal-box">
-                <div class="chart-header">
-                    <span class="tag">&lt;</span>
-                    HUMIDITY DISTRIBUTION
-                    <span class="tag">&gt;</span>
-                </div>
-                <canvas id="humidityDistChart"></canvas>
-            </div>
-
-            <!-- Correlation Chart -->
-            <div class="chart-container terminal-box full-width">
-                <div class="chart-header">
-                    <span class="tag">&lt;</span>
-                    TEMPERATURE vs HUMIDITY CORRELATION
-                    <span class="tag">&gt;</span>
-                </div>
-                <canvas id="correlationChart"></canvas>
             </div>
         </section>
 

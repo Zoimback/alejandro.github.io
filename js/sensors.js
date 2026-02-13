@@ -7,10 +7,7 @@ let currentTimeRange = 24; // horas
 
 // ===== CHART INSTANCES =====
 let tempChart = null;
-let humidityChart = null;
 let tempDistChart = null;
-let humidityDistChart = null;
-let correlationChart = null;
 
 // ===== CHART CONFIGURATION =====
 const chartColors = {
@@ -238,7 +235,7 @@ function createHistogram(values, bins = 10) {
 
 // ===== UI UPDATE FUNCTIONS =====
 
-function updateStatisticsUI(tempData, humidityData) {
+function updateStatisticsUI(tempData) {
     // Temperature stats
     document.getElementById('temp-current').textContent = 
         tempData.current ? `${tempData.current.toFixed(1)}°C` : '--°C';
@@ -252,20 +249,6 @@ function updateStatisticsUI(tempData, humidityData) {
         tempData.min ? `${tempData.min.toFixed(1)} / ${tempData.max.toFixed(1)}°C` : '--';
     document.getElementById('temp-stddev').textContent = 
         tempData.stdDev ? `±${tempData.stdDev.toFixed(2)}°C` : '--';
-
-    // Humidity stats
-    document.getElementById('humidity-current').textContent = 
-        humidityData.current ? `${humidityData.current.toFixed(1)}%` : '--%';
-    document.getElementById('humidity-mean').textContent = 
-        humidityData.mean ? `${humidityData.mean.toFixed(1)}%` : '--';
-    document.getElementById('humidity-median').textContent = 
-        humidityData.median ? `${humidityData.median.toFixed(1)}%` : '--';
-    document.getElementById('humidity-mode').textContent = 
-        humidityData.mode !== 'N/A' ? `${humidityData.mode}%` : 'N/A';
-    document.getElementById('humidity-minmax').textContent = 
-        humidityData.min ? `${humidityData.min.toFixed(1)} / ${humidityData.max.toFixed(1)}%` : '--';
-    document.getElementById('humidity-stddev').textContent = 
-        humidityData.stdDev ? `±${humidityData.stdDev.toFixed(2)}%` : '--';
 }
 
 function updateSummaryUI(summary) {
@@ -357,57 +340,8 @@ function createDistributionChart(ctx, label, histData, color) {
     });
 }
 
-function createCorrelationChart(ctx, tempValues, humidityValues) {
-    const data = tempValues.map((temp, i) => ({
-        x: temp,
-        y: humidityValues[i]
-    }));
-    
-    return new Chart(ctx, {
-        type: 'scatter',
-        data: {
-            datasets: [{
-                label: 'Temperature vs Humidity',
-                data: data,
-                backgroundColor: 'rgba(157, 0, 255, 0.5)',
-                borderColor: '#9D00FF',
-                borderWidth: 2
-            }]
-        },
-        options: {
-            ...commonChartOptions,
-            scales: {
-                x: {
-                    ...commonChartOptions.scales.x,
-                    title: {
-                        display: true,
-                        text: 'Temperature (°C)',
-                        color: chartColors.text,
-                        font: {
-                            family: 'VT323',
-                            size: 14
-                        }
-                    }
-                },
-                y: {
-                    ...commonChartOptions.scales.y,
-                    title: {
-                        display: true,
-                        text: 'Humidity (%)',
-                        color: chartColors.text,
-                        font: {
-                            family: 'VT323',
-                            size: 14
-                        }
-                    }
-                }
-            }
-        }
-    });
-}
-
 function destroyCharts() {
-    [tempChart, humidityChart, tempDistChart, humidityDistChart, correlationChart].forEach(chart => {
+    [tempChart, tempDistChart].forEach(chart => {
         if (chart) chart.destroy();
     });
 }
@@ -427,25 +361,22 @@ async function refreshData() {
     }
     
     // Fetch all data
-    const [tempMetrics, humidityMetrics, summary, latestReadings] = await Promise.all([
+    const [tempMetrics, summary, latestReadings] = await Promise.all([
         fetchMetrics('temperature', currentTimeRange),
-        fetchMetrics('humidity', currentTimeRange),
         fetchSummary(),
         fetchLatestReadings(20)
     ]);
     
     // Process metrics
     const tempData = processMetrics(tempMetrics);
-    const humidityData = processMetrics(humidityMetrics);
     
     // Update UI
-    updateStatisticsUI(tempData, humidityData);
+    updateStatisticsUI(tempData);
     updateSummaryUI(summary);
     updateLatestReadingsTable(latestReadings);
     
     // Create histograms
     const tempHist = createHistogram(tempData.values, 12);
-    const humidityHist = createHistogram(humidityData.values, 12);
     
     // Destroy old charts
     destroyCharts();
@@ -459,34 +390,11 @@ async function refreshData() {
         chartColors.temperature
     );
     
-    humidityChart = createTimeSeriesChart(
-        document.getElementById('humidityChart'),
-        'Humidity (%)',
-        humidityData.values,
-        humidityData.timestamps,
-        chartColors.humidity
-    );
-    
     tempDistChart = createDistributionChart(
         document.getElementById('tempDistChart'),
         'Frequency',
         tempHist,
         chartColors.temperature
-    );
-    
-    humidityDistChart = createDistributionChart(
-        document.getElementById('humidityDistChart'),
-        'Frequency',
-        humidityHist,
-        chartColors.humidity
-    );
-    
-    // Create correlation chart (sync data points)
-    const minLength = Math.min(tempData.values.length, humidityData.values.length);
-    correlationChart = createCorrelationChart(
-        document.getElementById('correlationChart'),
-        tempData.values.slice(0, minLength),
-        humidityData.values.slice(0, minLength)
     );
     
     console.log('Data refresh complete');
