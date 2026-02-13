@@ -24,27 +24,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-      
-      - name: Install dependencies
-        run: |
-          cd portfolio-react
-          npm install
-      
-      - name: Build project
-        run: |
-          cd portfolio-react
-          npm run build
-        env:
-          CI: false
-      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: portfolio-react/build
+          path: .
 
   deploy:
     environment:
